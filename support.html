@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Zoldre</title>
+    <meta name="description" content="Get help with Zoldre. Frequently asked questions and contact information.">
+    <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #FDF8F3;
+            color: #2D2D2D;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #FDF8F3;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #E8E0D8;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2D2D2D;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #666;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #F5A623;
+        }
+
+        .lang-switch {
+            background: #F5A623;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Content */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .page-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #2D2D2D;
+        }
+
+        .page-subtitle {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        /* Contact Cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            border: 2px solid #E8E0D8;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .contact-card:hover {
+            border-color: #F5A623;
+            transform: translateY(-3px);
+        }
+
+        .contact-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .contact-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #2D2D2D;
+        }
+
+        .contact-card p {
+            color: #F5A623;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .contact-card .response {
+            color: #999;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* FAQ Section */
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #2D2D2D;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #E8E0D8;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 25px;
+            font-size: 17px;
+            font-weight: 600;
+            color: #2D2D2D;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #FEFBF7;
+        }
+
+        .faq-toggle {
+            color: #F5A623;
+            font-size: 24px;
+            font-weight: 300;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 25px 20px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #2D2D2D;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #CCC;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #F5A623;
+        }
+
+        .footer-copyright {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .page-title {
+                font-size: 28px;
+            }
+
+            .faq-question {
+                font-size: 15px;
+                padding: 15px 20px;
+            }
+        }
+
+        /* Language toggle */
+        .lang-nl { display: none; }
+        body.nl .lang-en { display: none; }
+        body.nl .lang-nl { display: block; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Zoldre</a>
+        <div class="nav-links">
+            <a href="index.html" class="lang-en">Home</a>
+            <a href="index.html" class="lang-nl">Home</a>
+            <a href="privacy.html" class="lang-en">Privacy</a>
+            <a href="privacy.html" class="lang-nl">Privacy</a>
+            <button class="lang-switch" onclick="toggleLanguage()">
+                <span class="lang-en">NL</span>
+                <span class="lang-nl">EN</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ENGLISH CONTENT -->
+    <div class="content lang-en">
+        <h1 class="page-title">Support</h1>
+        <p class="page-subtitle">We're here to help. Reach out anytime.</p>
+
+        <div class="contact-grid">
+            <a href="mailto:zoldre.app@gmail.com" class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3>Email</h3>
+                <p>zoldre.app@gmail.com</p>
+                <p class="response">Usually reply within 24 hours</p>
+            </a>
+            <a href="https://instagram.com/zoldre.app" target="_blank" class="contact-card">
+                <div class="contact-icon">📷</div>
+                <h3>Instagram</h3>
+                <p>@zoldre.app</p>
+                <p class="response">Follow for updates & tips</p>
+            </a>
+        </div>
+
+        <h2 class="section-title">Frequently Asked Questions</h2>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How do I create a memory?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Tap the orange + button at the bottom of the screen. Take a photo of the object you want to remember, then tap the microphone to record your story. When you're done, tap to stop recording. Your memory is automatically saved!
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Where is my data stored?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        All your memories are stored locally on your iPhone. We never upload your photos or recordings to any server. Your data stays completely private on your device.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What if I lose my phone?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Since data is stored locally, we recommend using the Export feature regularly to save your memories to iCloud, a computer, or share them with family. This creates a backup you can keep safe.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How do I delete a memory?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Open the memory you want to delete by tapping on it. Look for the trash icon in the top right corner. Tap it and confirm to permanently delete the memory.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How do I export my memories?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Go to Settings (gear icon) and tap "Export Memories". The app will create a package with all your photos and voice recordings. You can then save it to Files, share via AirDrop, or send it by email.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>I reached 20 memories. What now?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        The free version includes 20 memories. To add more, you can purchase additional storage: €3.99 for up to 100 memories, €15.99 for up to 500 memories, or €80 for unlimited memories. These are one-time payments, not subscriptions.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Can my family see my memories?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Your memories are private to you unless you choose to share them. Use the Export feature to create a package you can share with family via email, AirDrop, or messaging apps.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do I need internet to use Zoldre?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        No! Zoldre works completely offline. You can take photos and record stories without any internet connection. You only need internet if you want to share or export your memories.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DUTCH CONTENT -->
+    <div class="content lang-nl">
+        <h1 class="page-title">Hulp</h1>
+        <p class="page-subtitle">We helpen je graag. Neem gerust contact op.</p>
+
+        <div class="contact-grid">
+            <a href="mailto:zoldre.app@gmail.com" class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3>E-mail</h3>
+                <p>zoldre.app@gmail.com</p>
+                <p class="response">Meestal binnen 24 uur antwoord</p>
+            </a>
+            <a href="https://instagram.com/zoldre.app" target="_blank" class="contact-card">
+                <div class="contact-icon">📷</div>
+                <h3>Instagram</h3>
+                <p>@zoldre.app</p>
+                <p class="response">Volg voor updates & tips</p>
+            </a>
+        </div>
+
+        <h2 class="section-title">Veelgestelde Vragen</h2>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Hoe maak ik een herinnering?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Tik op de oranje + knop onderaan het scherm. Maak een foto van het voorwerp dat je wilt onthouden en tik dan op de microfoon om je verhaal op te nemen. Als je klaar bent, tik je om te stoppen. Je herinnering wordt automatisch opgeslagen!
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Waar worden mijn gegevens opgeslagen?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Al je herinneringen worden lokaal op je iPhone opgeslagen. We uploaden nooit je foto's of opnames naar een server. Je gegevens blijven volledig privé op je apparaat.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Wat als ik mijn telefoon verlies?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Omdat gegevens lokaal worden opgeslagen, raden we aan om regelmatig de Exportfunctie te gebruiken om je herinneringen op te slaan naar iCloud, een computer, of te delen met familie. Dit maakt een back-up die je veilig kunt bewaren.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Hoe verwijder ik een herinnering?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Open de herinnering die je wilt verwijderen door erop te tikken. Zoek het prullenbakicoon in de rechterbovenhoek. Tik erop en bevestig om de herinnering permanent te verwijderen.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Hoe exporteer ik mijn herinneringen?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Ga naar Instellingen (tandwielicoon) en tik op "Exporteer Herinneringen". De app maakt een pakket met al je foto's en stemopnames. Je kunt het dan opslaan in Bestanden, delen via AirDrop, of per e-mail versturen.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Ik heb 20 herinneringen bereikt. Wat nu?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        De gratis versie bevat 20 herinneringen. Om meer toe te voegen kun je extra opslagruimte kopen: €3,99 voor maximaal 100 herinneringen, €15,99 voor maximaal 500 herinneringen, of €80 voor onbeperkt. Dit zijn eenmalige betalingen, geen abonnementen.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Kan mijn familie mijn herinneringen zien?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Je herinneringen zijn privé, tenzij je kiest om ze te delen. Gebruik de Exportfunctie om een pakket te maken dat je kunt delen met familie via e-mail, AirDrop of berichten-apps.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Heb ik internet nodig om Zoldre te gebruiken?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Nee! Zoldre werkt volledig offline. Je kunt foto's maken en verhalen opnemen zonder internetverbinding. Je hebt alleen internet nodig als je je herinneringen wilt delen of exporteren.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="index.html" class="lang-en">Home</a>
+            <a href="index.html" class="lang-nl">Home</a>
+            <a href="privacy.html" class="lang-en">Privacy</a>
+            <a href="privacy.html" class="lang-nl">Privacy</a>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2026 Zoldre</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLanguage() {
+            document.body.classList.toggle('nl');
+            localStorage.setItem('zoldre-lang', document.body.classList.contains('nl') ? 'nl' : 'en');
+        }
+
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('open');
+        }
+
+        if (localStorage.getItem('zoldre-lang') === 'nl') {
+            document.body.classList.add('nl');
+        }
+    </script>
+</body>
+</html>

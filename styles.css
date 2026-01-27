@@ -1,0 +1,65 @@
+/* 
+ * Zoldre Website - Shared Styles
+ * This file is optional - styles are also embedded in each HTML file
+ * for simplicity, but you can link to this file if you prefer.
+ */
+
+:root {
+    --color-orange: #F5A623;
+    --color-orange-light: #FFF5E5;
+    --color-background: #FAF8F5;
+    --color-text-dark: #2D2D2D;
+    --color-text-medium: #444;
+    --color-text-light: #666;
+    --color-text-lighter: #999;
+    --color-white: #FFFFFF;
+    --color-border: #EEE;
+    
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    
+    --shadow-small: 0 2px 8px rgba(0,0,0,0.04);
+    --shadow-medium: 0 2px 12px rgba(0,0,0,0.05);
+    --shadow-large: 0 4px 20px rgba(0,0,0,0.1);
+    
+    --radius-small: 8px;
+    --radius-medium: 12px;
+    --radius-large: 16px;
+    --radius-round: 50%;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+/* Utility Classes */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-16 {
+    margin-bottom: 16px;
+}
+
+.mb-24 {
+    margin-bottom: 24px;
+}
+
+.mb-32 {
+    margin-bottom: 32px;
+}
