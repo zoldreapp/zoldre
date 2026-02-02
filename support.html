@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support - Zoldre</title>
-    <meta name="description" content="Get help with Zoldre. Frequently asked questions and contact information.">
+    <meta name="description" content="Get help with Zoldre. Contact us with questions or feedback.">
     <link rel="icon" type="image/png" href="icon.png">
     <style>
         * {
@@ -12,282 +12,286 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background-color: #FDF8F3;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #FAF8F5;
             color: #2D2D2D;
-            line-height: 1.6;
+            line-height: 1.7;
         }
-
-        /* Navigation */
-        nav {
-            background-color: #FDF8F3;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #E8E0D8;
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: #2D2D2D;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #666;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #F5A623;
-        }
-
+        
+        /* Language Switcher */
         .lang-switch {
-            background: #F5A623;
-            color: white;
-            border: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        
+        .lang-btn {
+            background: white;
+            border: 2px solid #F5A623;
+            color: #F5A623;
             padding: 8px 16px;
             border-radius: 20px;
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
+            transition: all 0.3s ease;
         }
-
-        /* Content */
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
+        
+        .lang-btn:hover {
+            background: #F5A623;
+            color: white;
         }
-
-        .page-title {
+        
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #F5A623;
+            text-decoration: none;
+            font-size: 15px;
+            margin-bottom: 32px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Header */
+        .header {
+            margin-bottom: 40px;
+        }
+        
+        .title {
             font-size: 36px;
             font-weight: 700;
-            margin-bottom: 10px;
             color: #2D2D2D;
+            margin-bottom: 12px;
         }
-
-        .page-subtitle {
+        
+        .subtitle {
+            font-size: 17px;
             color: #666;
-            font-size: 18px;
-            margin-bottom: 50px;
         }
-
+        
         /* Contact Cards */
-        .contact-grid {
+        .contact-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 60px;
+            gap: 16px;
+            margin-bottom: 48px;
         }
-
+        
         .contact-card {
             background: white;
-            padding: 30px;
+            padding: 24px;
             border-radius: 16px;
-            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
             text-decoration: none;
             color: inherit;
-            border: 2px solid #E8E0D8;
-            transition: border-color 0.3s, transform 0.3s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-
+        
         .contact-card:hover {
-            border-color: #F5A623;
-            transform: translateY(-3px);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
-
+        
         .contact-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
+            width: 56px;
+            height: 56px;
+            background: #FFF5E5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
         }
-
-        .contact-card h3 {
-            font-size: 18px;
-            margin-bottom: 8px;
+        
+        .contact-info h3 {
+            font-size: 17px;
+            font-weight: 600;
             color: #2D2D2D;
+            margin-bottom: 4px;
         }
-
-        .contact-card p {
+        
+        .contact-info p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .contact-info .contact-value {
             color: #F5A623;
-            font-size: 16px;
             font-weight: 500;
         }
-
-        .contact-card .response {
-            color: #999;
-            font-size: 14px;
-            margin-top: 8px;
-        }
-
+        
         /* FAQ Section */
+        .faq-section {
+            margin-top: 48px;
+        }
+        
         .section-title {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 30px;
             color: #2D2D2D;
+            margin-bottom: 24px;
         }
-
-        .faq-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: #F5A623;
+            border-radius: 2px;
+            margin-bottom: 24px;
         }
-
+        
         .faq-item {
             background: white;
             border-radius: 12px;
-            border: 1px solid #E8E0D8;
+            margin-bottom: 12px;
             overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
-
+        
         .faq-question {
-            padding: 20px 25px;
-            font-size: 17px;
+            padding: 20px;
+            font-size: 16px;
             font-weight: 600;
             color: #2D2D2D;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background 0.3s;
         }
-
+        
         .faq-question:hover {
-            background: #FEFBF7;
+            background: #FEFCF9;
         }
-
+        
         .faq-toggle {
             color: #F5A623;
-            font-size: 24px;
-            font-weight: 300;
-            transition: transform 0.3s;
+            font-size: 20px;
+            transition: transform 0.3s ease;
         }
-
+        
         .faq-item.open .faq-toggle {
             transform: rotate(45deg);
         }
-
+        
         .faq-answer {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
         }
-
+        
         .faq-item.open .faq-answer {
-            max-height: 500px;
+            max-height: 300px;
         }
-
+        
         .faq-answer-content {
-            padding: 0 25px 20px;
+            padding: 0 20px 20px;
+            font-size: 15px;
             color: #555;
-            font-size: 16px;
-            line-height: 1.7;
+            line-height: 1.6;
         }
-
+        
         /* Footer */
-        footer {
-            background: #2D2D2D;
-            color: white;
-            padding: 40px 20px;
+        .footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid #EEE;
             text-align: center;
         }
-
+        
+        .footer p {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        
+        .footer a {
+            color: #F5A623;
+            text-decoration: none;
+        }
+        
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
         }
-
-        .footer-links a {
-            color: #CCC;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: #F5A623;
-        }
-
-        .footer-copyright {
-            color: #888;
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .page-title {
-                font-size: 28px;
-            }
-
-            .faq-question {
-                font-size: 15px;
-                padding: 15px 20px;
-            }
-        }
-
-        /* Language toggle */
-        .lang-nl { display: none; }
-        body.nl .lang-en { display: none; }
-        body.nl .lang-nl { display: block; }
+        
+        /* Dutch content - hidden by default */
+        .nl { display: none; }
+        body.dutch .en { display: none; }
+        body.dutch .nl { display: block; }
+        body.dutch .nl-inline { display: inline; }
+        body.dutch .en-inline { display: none; }
+        .nl-inline { display: none; }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo">Zoldre</a>
-        <div class="nav-links">
-            <a href="index.html" class="lang-en">Home</a>
-            <a href="index.html" class="lang-nl">Home</a>
-            <a href="privacy.html" class="lang-en">Privacy</a>
-            <a href="privacy.html" class="lang-nl">Privacy</a>
-            <button class="lang-switch" onclick="toggleLanguage()">
-                <span class="lang-en">NL</span>
-                <span class="lang-nl">EN</span>
-            </button>
-        </div>
-    </nav>
+    <!-- Language Switcher -->
+    <div class="lang-switch">
+        <button class="lang-btn" onclick="toggleLanguage()">
+            <span class="en-inline">NL</span>
+            <span class="nl-inline">EN</span>
+        </button>
+    </div>
 
-    <!-- ENGLISH CONTENT -->
-    <div class="content lang-en">
-        <h1 class="page-title">Support</h1>
-        <p class="page-subtitle">We're here to help. Reach out anytime.</p>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            ← <span class="en-inline">Back to Zoldre</span><span class="nl-inline">Terug naar Zoldre</span>
+        </a>
 
-        <div class="contact-grid">
+        <header class="header">
+            <h1 class="title en">Support</h1>
+            <h1 class="title nl">Ondersteuning</h1>
+            <p class="subtitle en">We're here to help. Reach out with questions or feedback.</p>
+            <p class="subtitle nl">We zijn er om te helpen. Neem contact op met vragen of feedback.</p>
+        </header>
+
+        <!-- Contact Cards -->
+        <div class="contact-cards">
             <a href="mailto:zoldre.app@gmail.com" class="contact-card">
                 <div class="contact-icon">✉️</div>
-                <h3>Email</h3>
-                <p>zoldre.app@gmail.com</p>
-                <p class="response">Usually reply within 24 hours</p>
+                <div class="contact-info">
+                    <h3>Email</h3>
+                    <p class="contact-value">zoldre.app@gmail.com</p>
+                    <p class="en">We typically respond within 24 hours</p>
+                    <p class="nl">We reageren meestal binnen 24 uur</p>
+                </div>
             </a>
+            
             <a href="https://instagram.com/zoldre.app" target="_blank" class="contact-card">
                 <div class="contact-icon">📷</div>
-                <h3>Instagram</h3>
-                <p>@zoldre.app</p>
-                <p class="response">Follow for updates & tips</p>
+                <div class="contact-info">
+                    <h3>Instagram</h3>
+                    <p class="contact-value">@zoldre.app</p>
+                    <p class="en">Follow us for updates and tips</p>
+                    <p class="nl">Volg ons voor updates en tips</p>
+                </div>
             </a>
         </div>
 
-        <h2 class="section-title">Frequently Asked Questions</h2>
-
-        <div class="faq-list">
+        <!-- FAQ Section English -->
+        <section class="faq-section en">
+            <div class="section-divider"></div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>How do I create a memory?</span>
@@ -299,7 +303,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Where is my data stored?</span>
@@ -311,7 +315,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>What if I lose my phone?</span>
@@ -323,7 +327,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>How do I delete a memory?</span>
@@ -335,7 +339,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>How do I export my memories?</span>
@@ -347,19 +351,31 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>I reached 20 memories. What now?</span>
+                    <span>I reached 25 memories. What now?</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        The free version includes 20 memories. To add more, you can purchase additional storage: €3.99 for up to 100 memories, €15.99 for up to 500 memories, or €80 for unlimited memories. These are one-time payments, not subscriptions.
+                        The free version includes 25 memories. To add more, you can purchase additional storage: €0.99 for 75 memories, €2.99 for 200 memories, or €4.99 for unlimited memories. These are one-time payments, not subscriptions.
                     </div>
                 </div>
             </div>
-
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What is Voice Guidance?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Voice Guidance is an optional feature that speaks instructions out loud as you use the app. For example, when you tap the + button, the app will say "Take a photo". You can turn this on or off in Settings. It's designed to help users who prefer audio instructions.
+                    </div>
+                </div>
+            </div>
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Can my family see my memories?</span>
@@ -371,44 +387,25 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Do I need internet to use Zoldre?</span>
+                    <span>How do I restore my purchases on a new phone?</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        No! Zoldre works completely offline. You can take photos and record stories without any internet connection. You only need internet if you want to share or export your memories.
+                        If you've purchased additional memory space and get a new phone, go to Settings and tap "Restore Purchases". This will restore any purchases linked to your Apple ID. Note that your memories themselves need to be exported and transferred manually.
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- DUTCH CONTENT -->
-    <div class="content lang-nl">
-        <h1 class="page-title">Hulp</h1>
-        <p class="page-subtitle">We helpen je graag. Neem gerust contact op.</p>
-
-        <div class="contact-grid">
-            <a href="mailto:zoldre.app@gmail.com" class="contact-card">
-                <div class="contact-icon">✉️</div>
-                <h3>E-mail</h3>
-                <p>zoldre.app@gmail.com</p>
-                <p class="response">Meestal binnen 24 uur antwoord</p>
-            </a>
-            <a href="https://instagram.com/zoldre.app" target="_blank" class="contact-card">
-                <div class="contact-icon">📷</div>
-                <h3>Instagram</h3>
-                <p>@zoldre.app</p>
-                <p class="response">Volg voor updates & tips</p>
-            </a>
-        </div>
-
-        <h2 class="section-title">Veelgestelde Vragen</h2>
-
-        <div class="faq-list">
+        <!-- FAQ Section Dutch -->
+        <section class="faq-section nl">
+            <div class="section-divider"></div>
+            <h2 class="section-title">Veelgestelde Vragen</h2>
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Hoe maak ik een herinnering?</span>
@@ -420,7 +417,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Waar worden mijn gegevens opgeslagen?</span>
@@ -432,7 +429,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Wat als ik mijn telefoon verlies?</span>
@@ -444,7 +441,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Hoe verwijder ik een herinnering?</span>
@@ -456,7 +453,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Hoe exporteer ik mijn herinneringen?</span>
@@ -468,19 +465,31 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Ik heb 20 herinneringen bereikt. Wat nu?</span>
+                    <span>Ik heb 25 herinneringen bereikt. Wat nu?</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        De gratis versie bevat 20 herinneringen. Om meer toe te voegen kun je extra opslagruimte kopen: €3,99 voor maximaal 100 herinneringen, €15,99 voor maximaal 500 herinneringen, of €80 voor onbeperkt. Dit zijn eenmalige betalingen, geen abonnementen.
+                        De gratis versie bevat 25 herinneringen. Om meer toe te voegen kun je extra opslagruimte kopen: €0,99 voor 75 herinneringen, €2,99 voor 200 herinneringen, of €4,99 voor onbeperkt. Dit zijn eenmalige betalingen, geen abonnementen.
                     </div>
                 </div>
             </div>
-
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Wat is Spraakbegeleiding?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Spraakbegeleiding is een optionele functie die instructies hardop uitspreekt terwijl je de app gebruikt. Bijvoorbeeld, wanneer je op de + knop tikt, zegt de app "Maak een foto". Je kunt dit aan of uit zetten in Instellingen. Het is ontworpen om gebruikers te helpen die de voorkeur geven aan audio-instructies.
+                    </div>
+                </div>
+            </div>
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
                     <span>Kan mijn familie mijn herinneringen zien?</span>
@@ -492,46 +501,48 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <div class="faq-question" onclick="toggleFaq(this)">
-                    <span>Heb ik internet nodig om Zoldre te gebruiken?</span>
+                    <span>Hoe herstel ik mijn aankopen op een nieuwe telefoon?</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        Nee! Zoldre werkt volledig offline. Je kunt foto's maken en verhalen opnemen zonder internetverbinding. Je hebt alleen internet nodig als je je herinneringen wilt delen of exporteren.
+                        Als je extra geheugenruimte hebt gekocht en een nieuwe telefoon krijgt, ga dan naar Instellingen en tik op "Herstel Aankopen". Dit herstelt alle aankopen die gekoppeld zijn aan je Apple ID. Let op: je herinneringen zelf moeten handmatig worden geëxporteerd en overgedragen.
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <footer>
-        <div class="footer-links">
-            <a href="index.html" class="lang-en">Home</a>
-            <a href="index.html" class="lang-nl">Home</a>
-            <a href="privacy.html" class="lang-en">Privacy</a>
-            <a href="privacy.html" class="lang-nl">Privacy</a>
-        </div>
-        <div class="footer-copyright">
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="index.html"><span class="en-inline">Home</span><span class="nl-inline">Home</span></a>
+                <a href="privacy.html"><span class="en-inline">Privacy Policy</span><span class="nl-inline">Privacybeleid</span></a>
+                <a href="terms.html"><span class="en-inline">Terms of Service</span><span class="nl-inline">Gebruiksvoorwaarden</span></a>
+            </div>
             <p>© 2026 Zoldre</p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <script>
         function toggleLanguage() {
-            document.body.classList.toggle('nl');
-            localStorage.setItem('zoldre-lang', document.body.classList.contains('nl') ? 'nl' : 'en');
+            document.body.classList.toggle('dutch');
+            if (document.body.classList.contains('dutch')) {
+                localStorage.setItem('zoldre-lang', 'nl');
+            } else {
+                localStorage.setItem('zoldre-lang', 'en');
+            }
         }
-
+        
         function toggleFaq(element) {
             const faqItem = element.parentElement;
             faqItem.classList.toggle('open');
         }
-
+        
+        // Load saved language preference
         if (localStorage.getItem('zoldre-lang') === 'nl') {
-            document.body.classList.add('nl');
+            document.body.classList.add('dutch');
         }
     </script>
 </body>

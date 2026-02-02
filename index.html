@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoldre - Capture the stories behind the things you treasure</title>
-    <meta name="description" content="Zoldre is a simple app for elderly people to preserve memories. Take a photo, tell the story, keep it forever.">
+    <meta name="description" content="Zoldre is a simple app for elderly people to capture memories of cherished objects through photos and voice recordings.">
     <link rel="icon" type="image/png" href="icon.png">
     <style>
         * {
@@ -12,638 +12,663 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background-color: #FDF8F3;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #FAF8F5;
             color: #2D2D2D;
             line-height: 1.6;
         }
-
-        /* Navigation */
-        nav {
-            background-color: #FDF8F3;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #E8E0D8;
-            position: sticky;
-            top: 0;
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
             z-index: 100;
         }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: #2D2D2D;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #666;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
+        
+        .lang-btn {
+            background: white;
+            border: 2px solid #F5A623;
             color: #F5A623;
-        }
-
-        .lang-switch {
-            background: #F5A623;
-            color: white;
-            border: none;
             padding: 8px 16px;
             border-radius: 20px;
             cursor: pointer;
             font-size: 14px;
             font-weight: 600;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
         }
-
-        .lang-switch:hover {
-            background: #E09000;
+        
+        .lang-btn:hover {
+            background: #F5A623;
+            color: white;
         }
-
-        /* Hero Section */
-        .hero {
+        
+        /* Header */
+        .header {
             text-align: center;
-            padding: 80px 20px;
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 60px 20px 40px;
         }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #2D2D2D;
-        }
-
-        .hero .tagline {
-            font-size: 24px;
-            color: #666;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .app-icon {
+        
+        .logo {
             width: 120px;
             height: 120px;
             border-radius: 24px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            margin-bottom: 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
-
-        .cta-button {
+        
+        .title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2D2D2D;
+            margin-bottom: 12px;
+        }
+        
+        .tagline {
+            font-size: 20px;
+            color: #666;
+            max-width: 400px;
+            margin: 0 auto 32px;
+        }
+        
+        .app-store-btn {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+        
+        .app-store-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .coming-soon {
             display: inline-block;
             background: #F5A623;
             color: white;
-            padding: 16px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 18px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 16px;
             font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(245, 166, 35, 0.4);
         }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(245, 166, 35, 0.5);
-        }
-
-        .coming-soon {
-            display: inline-block;
-            background: #E8E0D8;
-            color: #666;
-            padding: 16px 40px;
-            border-radius: 30px;
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 20px;
-        }
-
-        /* How It Works */
+        
+        /* Sections */
         .section {
-            padding: 80px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
+            padding: 60px 20px;
         }
-
+        
         .section-title {
-            text-align: center;
-            font-size: 36px;
+            font-size: 28px;
             font-weight: 700;
-            margin-bottom: 60px;
+            margin-bottom: 24px;
             color: #2D2D2D;
         }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .step {
-            text-align: center;
-            padding: 30px;
-        }
-
-        .step-number {
+        
+        .section-divider {
             width: 60px;
-            height: 60px;
+            height: 4px;
+            background: #F5A623;
+            border-radius: 2px;
+            margin-bottom: 24px;
+        }
+        
+        /* How it works */
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        
+        .step-number {
+            width: 48px;
+            height: 48px;
             background: #F5A623;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            font-weight: 700;
-            margin: 0 auto 20px;
-        }
-
-        .step h3 {
             font-size: 20px;
-            margin-bottom: 10px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
             color: #2D2D2D;
         }
-
-        .step p {
+        
+        .step-content p {
             color: #666;
-            font-size: 16px;
+            font-size: 15px;
         }
-
+        
         /* Features */
         .features {
-            background: white;
-            padding: 80px 20px;
-        }
-
-        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .feature {
-            background: #FDF8F3;
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid #E8E0D8;
-        }
-
-        .feature-icon {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-
-        .feature h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #2D2D2D;
-        }
-
-        .feature p {
-            color: #666;
-            font-size: 15px;
-        }
-
-        /* Stories Section */
-        .stories {
-            padding: 80px 20px;
-            background: #FDF8F3;
-        }
-
-        .stories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .story-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .story-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #F5A623 0%, #FFC857 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 48px;
-        }
-
-        .story-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .story-content {
-            padding: 25px;
-        }
-
-        .story-content h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #2D2D2D;
-        }
-
-        .story-content p {
-            color: #666;
-            font-size: 15px;
-            font-style: italic;
-        }
-
-        /* Pricing */
-        .pricing {
-            padding: 80px 20px;
-            background: white;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            max-width: 900px;
-            margin: 0 auto;
         }
-
-        .pricing-card {
-            background: #FDF8F3;
-            padding: 30px;
+        
+        .feature {
+            background: white;
+            padding: 24px;
             border-radius: 16px;
             text-align: center;
-            border: 2px solid #E8E0D8;
-            transition: border-color 0.3s, transform 0.3s;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
         }
-
-        .pricing-card:hover {
-            border-color: #F5A623;
-            transform: translateY(-5px);
+        
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
         }
-
-        .pricing-card.featured {
-            border-color: #F5A623;
+        
+        .feature h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #2D2D2D;
+        }
+        
+        .feature p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Pricing */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 24px 16px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            border: 2px solid transparent;
             position: relative;
         }
-
-        .pricing-card.featured::before {
-            content: attr(data-label);
+        
+        .pricing-card.popular {
+            border-color: #F5A623;
+        }
+        
+        .pricing-card.popular::before {
+            content: "Best Value";
             position: absolute;
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
             background: #F5A623;
             color: white;
-            padding: 4px 16px;
-            border-radius: 20px;
-            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
             font-weight: 600;
         }
-
-        .pricing-card h3 {
-            font-size: 18px;
-            color: #2D2D2D;
-            margin-bottom: 10px;
+        
+        body.dutch .pricing-card.popular::before {
+            content: "Beste Waarde";
         }
-
+        
+        .pricing-card .plan-name {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
         .pricing-card .price {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
             color: #F5A623;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
-
+        
         .pricing-card .price-note {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 16px;
+        }
+        
+        .pricing-card .memories {
+            font-size: 15px;
+            color: #2D2D2D;
+            font-weight: 600;
+        }
+        
+        .pricing-card .memories-detail {
+            font-size: 12px;
+            color: #888;
+            margin-top: 4px;
+        }
+        
+        /* Stories Section */
+        .stories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .story-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+        
+        .story-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #EEE;
+        }
+        
+        .story-image-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #F5A623 0%, #FFD93D 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+        
+        .story-content {
+            padding: 20px;
+        }
+        
+        .story-quote {
+            font-size: 15px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .story-author {
             font-size: 14px;
             color: #999;
-            margin-bottom: 15px;
         }
-
-        .pricing-card .memories {
-            font-size: 16px;
-            color: #666;
-        }
-
+        
         /* Footer */
-        footer {
-            background: #2D2D2D;
-            color: white;
-            padding: 60px 20px;
+        .footer {
+            background: white;
+            padding: 40px 20px;
             text-align: center;
+            margin-top: 40px;
         }
-
+        
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 24px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
         }
-
+        
         .footer-links a {
-            color: #CCC;
+            color: #666;
             text-decoration: none;
-            transition: color 0.3s;
+            font-size: 14px;
         }
-
+        
         .footer-links a:hover {
             color: #F5A623;
         }
-
+        
         .footer-contact {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
-
+        
         .footer-contact a {
             color: #F5A623;
             text-decoration: none;
-        }
-
-        .footer-copyright {
-            color: #888;
             font-size: 14px;
+            margin: 0 12px;
         }
-
+        
+        .footer-copyright {
+            font-size: 13px;
+            color: #999;
+        }
+        
         /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 15px;
+        @media (max-width: 600px) {
+            .title {
+                font-size: 36px;
             }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero .tagline {
+            
+            .tagline {
                 font-size: 18px;
             }
-
-            .section-title {
-                font-size: 28px;
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin: 0 auto;
+            }
+            
+            .pricing-cards {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
-
-        /* Language toggle - hide elements based on language */
-        .lang-nl { display: none; }
-        body.nl .lang-en { display: none; }
-        body.nl .lang-nl { display: block; }
+        
+        /* Dutch content - hidden by default */
+        .nl { display: none; }
+        body.dutch .en { display: none; }
+        body.dutch .nl { display: block; }
+        body.dutch .nl-inline { display: inline; }
+        body.dutch .en-inline { display: none; }
+        .nl-inline { display: none; }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="logo">Zoldre</a>
-        <div class="nav-links">
-            <a href="#how-it-works" class="lang-en">How It Works</a>
-            <a href="#how-it-works" class="lang-nl">Hoe Het Werkt</a>
-            <a href="#pricing" class="lang-en">Pricing</a>
-            <a href="#pricing" class="lang-nl">Prijzen</a>
-            <a href="support.html" class="lang-en">Support</a>
-            <a href="support.html" class="lang-nl">Hulp</a>
-            <button class="lang-switch" onclick="toggleLanguage()">
-                <span class="lang-en">NL</span>
-                <span class="lang-nl">EN</span>
-            </button>
-        </div>
-    </nav>
+    <!-- Language Switcher -->
+    <div class="lang-switch">
+        <button class="lang-btn" onclick="toggleLanguage()">
+            <span class="en-inline">NL</span>
+            <span class="nl-inline">EN</span>
+        </button>
+    </div>
 
-    <section class="hero">
-        <img src="icon.png" alt="Zoldre App Icon" class="app-icon">
-        <h1>Zoldre</h1>
-        <p class="tagline lang-en">Capture the stories behind the things you treasure</p>
-        <p class="tagline lang-nl">Bewaar de verhalen achter de dingen die je koestert</p>
+    <!-- Header -->
+    <header class="header">
+        <img src="icon.png" alt="Zoldre App Icon" class="logo">
+        <h1 class="title">Zoldre</h1>
+        <p class="tagline en">Capture the stories behind the things you treasure</p>
+        <p class="tagline nl">Bewaar de verhalen achter de dingen die je koestert</p>
         
-        <!-- Replace this with App Store link once approved -->
-        <div class="coming-soon lang-en">Coming Soon to App Store</div>
-        <div class="coming-soon lang-nl">Binnenkort in de App Store</div>
-        
-        <!-- Uncomment this once app is live:
-        <a href="https://apps.apple.com/app/zoldre" class="cta-button lang-en">Download on App Store</a>
-        <a href="https://apps.apple.com/app/zoldre" class="cta-button lang-nl">Download in App Store</a>
-        -->
-    </section>
+        <!-- Replace with App Store link after approval -->
+        <span class="coming-soon en">Coming Soon to App Store</span>
+        <span class="coming-soon nl">Binnenkort in de App Store</span>
+        <!-- <a href="https://apps.apple.com/app/zoldre" class="app-store-btn">Download on App Store</a> -->
+    </header>
 
-    <section class="section" id="how-it-works">
-        <h2 class="section-title lang-en">How It Works</h2>
-        <h2 class="section-title lang-nl">Hoe Het Werkt</h2>
-        
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3 class="lang-en">Take a Photo</h3>
-                <h3 class="lang-nl">Maak een Foto</h3>
-                <p class="lang-en">Photograph something meaningful to you — an old watch, a letter, a painting, anything you treasure.</p>
-                <p class="lang-nl">Fotografeer iets dat betekenisvol voor je is — een oud horloge, een brief, een schilderij, alles wat je koestert.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3 class="lang-en">Tell the Story</h3>
-                <h3 class="lang-nl">Vertel het Verhaal</h3>
-                <p class="lang-en">Record your voice. Share the memory, the history, the feeling. No typing needed.</p>
-                <p class="lang-nl">Neem je stem op. Deel de herinnering, de geschiedenis, het gevoel. Geen typen nodig.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3 class="lang-en">Keep It Forever</h3>
-                <h3 class="lang-nl">Bewaar Het Voor Altijd</h3>
-                <p class="lang-en">Your memory is saved. Listen back anytime. Export and share with family.</p>
-                <p class="lang-nl">Je herinnering is opgeslagen. Luister wanneer je wilt. Exporteer en deel met familie.</p>
-            </div>
-        </div>
-    </section>
+    <div class="container">
+        <!-- What is Zoldre -->
+        <section class="section">
+            <div class="section-divider"></div>
+            <h2 class="section-title en">What is Zoldre?</h2>
+            <h2 class="section-title nl">Wat is Zoldre?</h2>
+            
+            <p class="en" style="font-size: 17px; color: #444; margin-bottom: 16px;">
+                Zoldre is a simple app for preserving memories. Take a photo of something meaningful. Record the story behind it. Keep it forever.
+            </p>
+            <p class="nl" style="font-size: 17px; color: #444; margin-bottom: 16px;">
+                Zoldre is een eenvoudige app voor het bewaren van herinneringen. Maak een foto van iets dat betekenis heeft. Neem het verhaal erachter op. Bewaar het voor altijd.
+            </p>
+            
+            <p class="en" style="font-size: 17px; color: #444;">
+                Designed for simplicity. No typing required. Just photos and your voice.
+            </p>
+            <p class="nl" style="font-size: 17px; color: #444;">
+                Ontworpen voor eenvoud. Geen typen nodig. Alleen foto's en je stem.
+            </p>
+        </section>
 
-    <section class="features">
-        <h2 class="section-title lang-en">Designed for Simplicity</h2>
-        <h2 class="section-title lang-nl">Ontworpen voor Eenvoud</h2>
-        
-        <div class="features-grid">
-            <div class="feature">
-                <div class="feature-icon">🎯</div>
-                <h3 class="lang-en">Three Taps Only</h3>
-                <h3 class="lang-nl">Slechts Drie Tikken</h3>
-                <p class="lang-en">Photo, voice, save. That's it. No complicated menus or settings.</p>
-                <p class="lang-nl">Foto, stem, opslaan. Dat is alles. Geen ingewikkelde menu's of instellingen.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🎤</div>
-                <h3 class="lang-en">Voice, Not Typing</h3>
-                <h3 class="lang-nl">Stem, Niet Typen</h3>
-                <p class="lang-en">Speak your stories naturally. Your voice is part of the memory.</p>
-                <p class="lang-nl">Spreek je verhalen natuurlijk in. Je stem is onderdeel van de herinnering.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">📱</div>
-                <h3 class="lang-en">Works Offline</h3>
-                <h3 class="lang-nl">Werkt Offline</h3>
-                <p class="lang-en">No internet needed. Your memories stay on your device.</p>
-                <p class="lang-nl">Geen internet nodig. Je herinneringen blijven op je toestel.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🔒</div>
-                <h3 class="lang-en">Private & Secure</h3>
-                <h3 class="lang-nl">Privé & Veilig</h3>
-                <p class="lang-en">Your data never leaves your phone. We can't see your memories.</p>
-                <p class="lang-nl">Je gegevens verlaten nooit je telefoon. Wij kunnen je herinneringen niet zien.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">📤</div>
-                <h3 class="lang-en">Easy Export</h3>
-                <h3 class="lang-nl">Makkelijk Exporteren</h3>
-                <p class="lang-en">Share your memories with family via email, AirDrop, or save to files.</p>
-                <p class="lang-nl">Deel je herinneringen met familie via e-mail, AirDrop, of sla op als bestanden.</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">💰</div>
-                <h3 class="lang-en">Free to Start</h3>
-                <h3 class="lang-nl">Gratis om te Beginnen</h3>
-                <p class="lang-en">Create 20 memories for free. Upgrade only if you love it.</p>
-                <p class="lang-nl">Maak 20 herinneringen gratis. Upgrade alleen als je het geweldig vindt.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="stories" id="stories">
-        <h2 class="section-title lang-en">Memories Worth Keeping</h2>
-        <h2 class="section-title lang-nl">Herinneringen om te Koesteren</h2>
-        
-        <div class="stories-grid">
-            <div class="story-card">
-                <div class="story-image">
-                    <!-- Replace with: <img src="story1.jpg" alt="Story"> -->
-                    ⌚
+        <!-- How it works -->
+        <section class="section">
+            <div class="section-divider"></div>
+            <h2 class="section-title en">How It Works</h2>
+            <h2 class="section-title nl">Hoe Het Werkt</h2>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="en">Tap the + button</h3>
+                        <h3 class="nl">Tik op de + knop</h3>
+                        <p class="en">Open the app and tap the orange button to start capturing a memory.</p>
+                        <p class="nl">Open de app en tik op de oranje knop om een herinnering vast te leggen.</p>
+                    </div>
                 </div>
-                <div class="story-content">
-                    <h3 class="lang-en">"My grandfather's watch"</h3>
-                    <h3 class="lang-nl">"Het horloge van mijn grootvader"</h3>
-                    <p class="lang-en">"He wore it every day for 40 years. Now I have his voice telling me why it mattered."</p>
-                    <p class="lang-nl">"Hij droeg het elke dag, 40 jaar lang. Nu heb ik zijn stem die vertelt waarom het belangrijk was."</p>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="en">Take a photo</h3>
+                        <h3 class="nl">Maak een foto</h3>
+                        <p class="en">Photograph the object, place, or moment you want to remember.</p>
+                        <p class="nl">Fotografeer het voorwerp, de plek of het moment dat je wilt onthouden.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="en">Tell your story</h3>
+                        <h3 class="nl">Vertel je verhaal</h3>
+                        <p class="en">Record your voice telling the story behind this treasure. No typing needed.</p>
+                        <p class="nl">Neem je stem op terwijl je het verhaal vertelt. Geen typen nodig.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="en">Your memory is saved</h3>
+                        <h3 class="nl">Je herinnering is bewaard</h3>
+                        <p class="en">That's it! Your memory is safely stored on your device, ready to revisit anytime.</p>
+                        <p class="nl">Dat is alles! Je herinnering is veilig opgeslagen op je apparaat.</p>
+                    </div>
                 </div>
             </div>
-            <div class="story-card">
-                <div class="story-image">
-                    <!-- Replace with: <img src="story2.jpg" alt="Story"> -->
-                    📖
-                </div>
-                <div class="story-content">
-                    <h3 class="lang-en">"The recipe book"</h3>
-                    <h3 class="lang-nl">"Het receptenboek"</h3>
-                    <p class="lang-en">"My mother's handwritten recipes. I recorded her telling me the secrets she never wrote down."</p>
-                    <p class="lang-nl">"De handgeschreven recepten van mijn moeder. Ik nam op hoe ze me de geheimen vertelde die ze nooit opschreef."</p>
-                </div>
-            </div>
-            <div class="story-card">
-                <div class="story-image">
-                    <!-- Replace with: <img src="story3.jpg" alt="Story"> -->
-                    ✉️
-                </div>
-                <div class="story-content">
-                    <h3 class="lang-en">"Letters from the war"</h3>
-                    <h3 class="lang-nl">"Brieven uit de oorlog"</h3>
-                    <p class="lang-en">"My father never talked about it. But one afternoon, he recorded everything. Now we'll never forget."</p>
-                    <p class="lang-nl">"Mijn vader praatte er nooit over. Maar op een middag nam hij alles op. Nu vergeten we het nooit."</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="pricing" id="pricing">
-        <h2 class="section-title lang-en">Simple Pricing</h2>
-        <h2 class="section-title lang-nl">Eenvoudige Prijzen</h2>
-        
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3 class="lang-en">Free</h3>
-                <h3 class="lang-nl">Gratis</h3>
-                <div class="price">€0</div>
-                <div class="price-note lang-en">forever</div>
-                <div class="price-note lang-nl">voor altijd</div>
-                <div class="memories lang-en">Up to 20 memories</div>
-                <div class="memories lang-nl">Tot 20 herinneringen</div>
+        <!-- Features -->
+        <section class="section">
+            <div class="section-divider"></div>
+            <h2 class="section-title en">Features</h2>
+            <h2 class="section-title nl">Kenmerken</h2>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📸</div>
+                    <h3 class="en">Simple 3-tap capture</h3>
+                    <h3 class="nl">Eenvoudig in 3 tikken</h3>
+                    <p class="en">Photo, voice, done</p>
+                    <p class="nl">Foto, stem, klaar</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🎙️</div>
+                    <h3 class="en">Voice recording</h3>
+                    <h3 class="nl">Stem opname</h3>
+                    <p class="en">No typing needed</p>
+                    <p class="nl">Geen typen nodig</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🔊</div>
+                    <h3 class="en">Voice guidance</h3>
+                    <h3 class="nl">Spraakbegeleiding</h3>
+                    <p class="en">App speaks instructions</p>
+                    <p class="nl">App spreekt instructies</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="en">Works offline</h3>
+                    <h3 class="nl">Werkt offline</h3>
+                    <p class="en">No internet required</p>
+                    <p class="nl">Geen internet nodig</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="en">Private & secure</h3>
+                    <h3 class="nl">Privé & veilig</h3>
+                    <p class="en">Data stays on your device</p>
+                    <p class="nl">Data blijft op je apparaat</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="en">Pay once</h3>
+                    <h3 class="nl">Eenmalig betalen</h3>
+                    <p class="en">No subscriptions</p>
+                    <p class="nl">Geen abonnement</p>
+                </div>
             </div>
-            <div class="pricing-card">
-                <h3 class="lang-en">Standard</h3>
-                <h3 class="lang-nl">Standaard</h3>
-                <div class="price">€3.99</div>
-                <div class="price-note lang-en">one-time</div>
-                <div class="price-note lang-nl">eenmalig</div>
-                <div class="memories lang-en">Up to 100 memories</div>
-                <div class="memories lang-nl">Tot 100 herinneringen</div>
-            </div>
-            <div class="pricing-card featured" data-label="Popular">
-                <h3 class="lang-en">Extended</h3>
-                <h3 class="lang-nl">Uitgebreid</h3>
-                <div class="price">€15.99</div>
-                <div class="price-note lang-en">one-time</div>
-                <div class="price-note lang-nl">eenmalig</div>
-                <div class="memories lang-en">Up to 500 memories</div>
-                <div class="memories lang-nl">Tot 500 herinneringen</div>
-            </div>
-            <div class="pricing-card">
-                <h3 class="lang-en">Unlimited</h3>
-                <h3 class="lang-nl">Onbeperkt</h3>
-                <div class="price">€80</div>
-                <div class="price-note lang-en">one-time, forever</div>
-                <div class="price-note lang-nl">eenmalig, voor altijd</div>
-                <div class="memories lang-en">Unlimited memories</div>
-                <div class="memories lang-nl">Onbeperkte herinneringen</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <footer>
+        <!-- Pricing -->
+        <section class="section">
+            <div class="section-divider"></div>
+            <h2 class="section-title en">Pricing</h2>
+            <h2 class="section-title nl">Prijzen</h2>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="plan-name">Free</div>
+                    <div class="price">€0</div>
+                    <div class="price-note en">Forever free</div>
+                    <div class="price-note nl">Altijd gratis</div>
+                    <div class="memories en">25 memories</div>
+                    <div class="memories nl">25 herinneringen</div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="plan-name">Standard</div>
+                    <div class="price">€0.99</div>
+                    <div class="price-note en">One-time</div>
+                    <div class="price-note nl">Eenmalig</div>
+                    <div class="memories en">75 memories</div>
+                    <div class="memories nl">75 herinneringen</div>
+                    <div class="memories-detail en">+50 extra</div>
+                    <div class="memories-detail nl">+50 extra</div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="plan-name">Extended</div>
+                    <div class="price">€2.99</div>
+                    <div class="price-note en">One-time</div>
+                    <div class="price-note nl">Eenmalig</div>
+                    <div class="memories en">200 memories</div>
+                    <div class="memories nl">200 herinneringen</div>
+                    <div class="memories-detail en">+125 extra</div>
+                    <div class="memories-detail nl">+125 extra</div>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="plan-name">Unlimited</div>
+                    <div class="price">€4.99</div>
+                    <div class="price-note en">One-time, forever</div>
+                    <div class="price-note nl">Eenmalig, voor altijd</div>
+                    <div class="memories en">Unlimited</div>
+                    <div class="memories nl">Onbeperkt</div>
+                    <div class="memories-detail en">Never run out</div>
+                    <div class="memories-detail nl">Nooit vol</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stories -->
+        <section class="section">
+            <div class="section-divider"></div>
+            <h2 class="section-title en">Stories</h2>
+            <h2 class="section-title nl">Verhalen</h2>
+            
+            <div class="stories">
+                <!-- Story 1 - Placeholder for your photo -->
+                <div class="story-card">
+                    <div class="story-image-placeholder">📷</div>
+                    <!-- Replace with: <img src="story1.jpg" alt="Story" class="story-image"> -->
+                    <div class="story-content">
+                        <p class="story-quote en">"My grandmother recorded stories about her jewelry collection. Now we have her voice forever."</p>
+                        <p class="story-quote nl">"Mijn oma nam verhalen op over haar sieradencollectie. Nu hebben we haar stem voor altijd."</p>
+                        <p class="story-author">— Maria, 45</p>
+                    </div>
+                </div>
+                
+                <!-- Story 2 - Placeholder for your photo -->
+                <div class="story-card">
+                    <div class="story-image-placeholder">📷</div>
+                    <!-- Replace with: <img src="story2.jpg" alt="Story" class="story-image"> -->
+                    <div class="story-content">
+                        <p class="story-quote en">"Before moving to a smaller home, dad recorded memories of every room. The house is gone, but the stories remain."</p>
+                        <p class="story-quote nl">"Voor de verhuizing naar een kleiner huis nam papa herinneringen op van elke kamer. Het huis is weg, maar de verhalen blijven."</p>
+                        <p class="story-author">— Thomas, 38</p>
+                    </div>
+                </div>
+                
+                <!-- Story 3 - Placeholder for your photo -->
+                <div class="story-card">
+                    <div class="story-image-placeholder">📷</div>
+                    <!-- Replace with: <img src="story3.jpg" alt="Story" class="story-image"> -->
+                    <div class="story-content">
+                        <p class="story-quote en">"So simple even my 82-year-old father uses it without help. Three taps and done."</p>
+                        <p class="story-quote nl">"Zo eenvoudig dat zelfs mijn 82-jarige vader het zonder hulp gebruikt. Drie tikken en klaar."</p>
+                        <p class="story-author">— Anna, 52</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="footer-links">
-            <a href="privacy.html" class="lang-en">Privacy Policy</a>
-            <a href="privacy.html" class="lang-nl">Privacybeleid</a>
-            <a href="support.html" class="lang-en">Support</a>
-            <a href="support.html" class="lang-nl">Hulp</a>
+            <a href="privacy.html" class="en">Privacy Policy</a>
+            <a href="privacy.html" class="nl">Privacybeleid</a>
+            <a href="terms.html" class="en">Terms of Service</a>
+            <a href="terms.html" class="nl">Gebruiksvoorwaarden</a>
+            <a href="support.html" class="en">Support</a>
+            <a href="support.html" class="nl">Ondersteuning</a>
         </div>
+        
         <div class="footer-contact">
-            <p class="lang-en">Questions? Contact us:</p>
-            <p class="lang-nl">Vragen? Neem contact op:</p>
             <a href="mailto:zoldre.app@gmail.com">zoldre.app@gmail.com</a>
-            <span> · </span>
             <a href="https://instagram.com/zoldre.app" target="_blank">@zoldre.app</a>
         </div>
-        <div class="footer-copyright">
-            <p>© 2026 Zoldre. <span class="lang-en">Made with care for preserving memories.</span><span class="lang-nl">Gemaakt met zorg voor het bewaren van herinneringen.</span></p>
-        </div>
+        
+        <p class="footer-copyright">© 2026 Zoldre. All rights reserved.</p>
     </footer>
 
     <script>
         function toggleLanguage() {
-            document.body.classList.toggle('nl');
-            localStorage.setItem('zoldre-lang', document.body.classList.contains('nl') ? 'nl' : 'en');
+            document.body.classList.toggle('dutch');
+            // Save preference
+            if (document.body.classList.contains('dutch')) {
+                localStorage.setItem('zoldre-lang', 'nl');
+            } else {
+                localStorage.setItem('zoldre-lang', 'en');
+            }
         }
-
+        
         // Load saved language preference
         if (localStorage.getItem('zoldre-lang') === 'nl') {
-            document.body.classList.add('nl');
+            document.body.classList.add('dutch');
         }
     </script>
 </body>

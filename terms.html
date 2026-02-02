@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Zoldre</title>
+    <meta name="description" content="Zoldre Terms of Service - Please read before using the app.">
+    <link rel="icon" type="image/png" href="icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #FAF8F5;
+            color: #2D2D2D;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Language Switcher */
+        .lang-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        
+        .lang-btn {
+            background: white;
+            border: 2px solid #F5A623;
+            color: #F5A623;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover {
+            background: #F5A623;
+            color: white;
+        }
+        
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #F5A623;
+            text-decoration: none;
+            font-size: 15px;
+            margin-bottom: 32px;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Header */
+        .header {
+            margin-bottom: 40px;
+        }
+        
+        .title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #2D2D2D;
+            margin-bottom: 8px;
+        }
+        
+        .last-updated {
+            font-size: 14px;
+            color: #999;
+        }
+        
+        /* Content */
+        .content h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2D2D2D;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #EEE;
+        }
+        
+        .content h2:first-of-type {
+            border-top: none;
+            margin-top: 0;
+            padding-top: 0;
+        }
+        
+        .content p {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 16px;
+        }
+        
+        .content ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        
+        .content li {
+            font-size: 15px;
+            color: #444;
+            margin-bottom: 8px;
+        }
+        
+        .warning-box {
+            background: #FFF5E5;
+            border-left: 4px solid #F5A623;
+            padding: 16px 20px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .warning-box p {
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid #EEE;
+            text-align: center;
+        }
+        
+        .footer p {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        
+        .footer a {
+            color: #F5A623;
+            text-decoration: none;
+        }
+        
+        /* Dutch content - hidden by default */
+        .nl { display: none; }
+        body.dutch .en { display: none; }
+        body.dutch .nl { display: block; }
+        body.dutch .nl-inline { display: inline; }
+        body.dutch .en-inline { display: none; }
+        .nl-inline { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="lang-switch">
+        <button class="lang-btn" onclick="toggleLanguage()">
+            <span class="en-inline">NL</span>
+            <span class="nl-inline">EN</span>
+        </button>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="back-link">
+            ← <span class="en-inline">Back to Zoldre</span><span class="nl-inline">Terug naar Zoldre</span>
+        </a>
+
+        <header class="header">
+            <h1 class="title en">Terms of Service</h1>
+            <h1 class="title nl">Gebruiksvoorwaarden</h1>
+            <p class="last-updated en">Last updated: January 2026</p>
+            <p class="last-updated nl">Laatst bijgewerkt: Januari 2026</p>
+        </header>
+
+        <!-- English Content -->
+        <div class="content en">
+            <p>By downloading, installing, or using Zoldre ("the App"), you agree to these Terms of Service. If you do not agree, please do not use the App.</p>
+
+            <h2>1. Description of Service</h2>
+            <p>Zoldre is a memory capture application that allows you to photograph objects and record voice stories about them. The App stores all data locally on your device.</p>
+
+            <h2>2. Data Storage and Your Responsibility</h2>
+            
+            <div class="warning-box">
+                <p>Important: All your memories (photos and voice recordings) are stored locally on your device only. We do not store copies on any server. You are solely responsible for backing up your data.</p>
+            </div>
+            
+            <p>We strongly recommend:</p>
+            <ul>
+                <li>Regularly using the Export feature to save copies of your memories</li>
+                <li>Storing exports in a safe location (iCloud, computer, external drive)</li>
+                <li>Sharing important memories with family members</li>
+            </ul>
+            
+            <p>If your device is lost, stolen, damaged, or reset, any memories not previously exported will be permanently lost. We cannot recover this data as we do not have access to it.</p>
+
+            <h2>3. In-App Purchases</h2>
+            <p>The App offers optional in-app purchases to unlock additional memory storage capacity. These are one-time, non-consumable purchases processed by Apple through the App Store.</p>
+            <ul>
+                <li>All purchases are final and processed according to Apple's terms</li>
+                <li>Refund requests should be directed to Apple</li>
+                <li>You can restore previous purchases on a new device using the "Restore Purchases" feature</li>
+            </ul>
+
+            <h2>4. Acceptable Use</h2>
+            <p>You agree to use the App only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+            <ul>
+                <li>Use the App for any illegal purpose</li>
+                <li>Attempt to reverse engineer, decompile, or disassemble the App</li>
+                <li>Remove or alter any proprietary notices from the App</li>
+                <li>Use the App to store content that infringes on others' rights</li>
+            </ul>
+
+            <h2>5. Intellectual Property</h2>
+            <p>The App, including its design, features, and content, is owned by the developer and protected by copyright and other intellectual property laws. You receive a limited, non-exclusive, non-transferable license to use the App for personal, non-commercial purposes.</p>
+            <p>Your content (photos and recordings you create) remains your property. We do not claim any ownership over your memories.</p>
+
+            <h2>6. Disclaimer of Warranties</h2>
+            <p>The App is provided "as is" and "as available" without warranties of any kind, either express or implied, including but not limited to:</p>
+            <ul>
+                <li>Warranties of merchantability or fitness for a particular purpose</li>
+                <li>Warranties that the App will be uninterrupted, error-free, or secure</li>
+                <li>Warranties that defects will be corrected</li>
+            </ul>
+
+            <h2>7. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by applicable law:</p>
+            <ul>
+                <li>The developer shall not be liable for any indirect, incidental, special, consequential, or punitive damages</li>
+                <li>The developer shall not be liable for any loss of data, loss of memories, emotional distress, or loss of profits</li>
+                <li>The developer's total liability for any claim shall not exceed the amount you paid for in-app purchases in the 12 months preceding the claim</li>
+            </ul>
+            <p>Some jurisdictions do not allow the exclusion or limitation of certain damages, so some of the above limitations may not apply to you. In such cases, our liability will be limited to the maximum extent permitted by law.</p>
+
+            <h2>8. Indemnification</h2>
+            <p>You agree to indemnify and hold harmless the developer from any claims, damages, losses, or expenses arising from your use of the App or violation of these Terms.</p>
+
+            <h2>9. Changes to the App</h2>
+            <p>We may update, modify, or discontinue the App at any time without notice. We are not liable for any modification, suspension, or discontinuation of the App.</p>
+
+            <h2>10. Changes to These Terms</h2>
+            <p>We may update these Terms from time to time. Continued use of the App after changes constitutes acceptance of the new Terms. We encourage you to review these Terms periodically.</p>
+
+            <h2>11. Governing Law</h2>
+            <p>These Terms are governed by the laws of the Netherlands. Any disputes shall be subject to the exclusive jurisdiction of the courts of the Netherlands, without prejudice to your rights under mandatory consumer protection laws of your country of residence.</p>
+
+            <h2>12. Severability</h2>
+            <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.</p>
+
+            <h2>13. Contact</h2>
+            <p>If you have questions about these Terms, please contact us:</p>
+            <ul>
+                <li>Email: <a href="mailto:zoldre.app@gmail.com">zoldre.app@gmail.com</a></li>
+            </ul>
+        </div>
+
+        <!-- Dutch Content -->
+        <div class="content nl">
+            <p>Door Zoldre ("de App") te downloaden, installeren of gebruiken, gaat u akkoord met deze Gebruiksvoorwaarden. Als u niet akkoord gaat, gebruik de App dan niet.</p>
+
+            <h2>1. Beschrijving van de Dienst</h2>
+            <p>Zoldre is een app voor het vastleggen van herinneringen waarmee u voorwerpen kunt fotograferen en stemverhalen erover kunt opnemen. De App slaat alle gegevens lokaal op uw apparaat op.</p>
+
+            <h2>2. Gegevensopslag en Uw Verantwoordelijkheid</h2>
+            
+            <div class="warning-box">
+                <p>Belangrijk: Al uw herinneringen (foto's en stemopnames) worden alleen lokaal op uw apparaat opgeslagen. Wij slaan geen kopieën op servers op. U bent zelf verantwoordelijk voor het maken van back-ups van uw gegevens.</p>
+            </div>
+            
+            <p>Wij raden u sterk aan om:</p>
+            <ul>
+                <li>Regelmatig de Exportfunctie te gebruiken om kopieën van uw herinneringen op te slaan</li>
+                <li>Exports op een veilige locatie te bewaren (iCloud, computer, externe schijf)</li>
+                <li>Belangrijke herinneringen met familieleden te delen</li>
+            </ul>
+            
+            <p>Als uw apparaat verloren raakt, gestolen wordt, beschadigd raakt of wordt gereset, gaan alle niet eerder geëxporteerde herinneringen permanent verloren. Wij kunnen deze gegevens niet herstellen omdat wij er geen toegang toe hebben.</p>
+
+            <h2>3. In-App Aankopen</h2>
+            <p>De App biedt optionele in-app aankopen om extra herinneringsruimte te ontgrendelen. Dit zijn eenmalige, niet-verbruikbare aankopen die door Apple via de App Store worden verwerkt.</p>
+            <ul>
+                <li>Alle aankopen zijn definitief en worden verwerkt volgens Apple's voorwaarden</li>
+                <li>Verzoeken om terugbetaling dienen aan Apple te worden gericht</li>
+                <li>U kunt eerdere aankopen op een nieuw apparaat herstellen met de functie "Herstel Aankopen"</li>
+            </ul>
+
+            <h2>4. Acceptabel Gebruik</h2>
+            <p>U stemt ermee in de App alleen te gebruiken voor wettige doeleinden en in overeenstemming met deze Voorwaarden. U stemt ermee in om niet:</p>
+            <ul>
+                <li>De App te gebruiken voor illegale doeleinden</li>
+                <li>Te proberen de App te reverse-engineeren, decompileren of disassembleren</li>
+                <li>Eigendomsrechten of kennisgevingen van de App te verwijderen of te wijzigen</li>
+                <li>De App te gebruiken om inhoud op te slaan die inbreuk maakt op de rechten van anderen</li>
+            </ul>
+
+            <h2>5. Intellectueel Eigendom</h2>
+            <p>De App, inclusief het ontwerp, de functies en de inhoud, is eigendom van de ontwikkelaar en wordt beschermd door auteursrecht en andere intellectuele eigendomswetten. U ontvangt een beperkte, niet-exclusieve, niet-overdraagbare licentie om de App te gebruiken voor persoonlijke, niet-commerciële doeleinden.</p>
+            <p>Uw inhoud (foto's en opnames die u maakt) blijft uw eigendom. Wij claimen geen eigendom over uw herinneringen.</p>
+
+            <h2>6. Garantiedisclaimer</h2>
+            <p>De App wordt geleverd "zoals deze is" en "zoals beschikbaar" zonder enige garantie, expliciet of impliciet, inclusief maar niet beperkt tot:</p>
+            <ul>
+                <li>Garanties van verkoopbaarheid of geschiktheid voor een bepaald doel</li>
+                <li>Garanties dat de App ononderbroken, foutloos of veilig zal zijn</li>
+                <li>Garanties dat gebreken zullen worden gecorrigeerd</li>
+            </ul>
+
+            <h2>7. Beperking van Aansprakelijkheid</h2>
+            <p>Voor zover toegestaan door toepasselijk recht:</p>
+            <ul>
+                <li>Is de ontwikkelaar niet aansprakelijk voor indirecte, incidentele, speciale, gevolgschade of punitieve schade</li>
+                <li>Is de ontwikkelaar niet aansprakelijk voor verlies van gegevens, verlies van herinneringen, emotioneel leed of winstderving</li>
+                <li>Zal de totale aansprakelijkheid van de ontwikkelaar voor enige claim niet hoger zijn dan het bedrag dat u in de 12 maanden voorafgaand aan de claim aan in-app aankopen heeft betaald</li>
+            </ul>
+            <p>Sommige rechtsgebieden staan de uitsluiting of beperking van bepaalde schade niet toe, dus sommige van de bovenstaande beperkingen zijn mogelijk niet op u van toepassing. In dergelijke gevallen zal onze aansprakelijkheid worden beperkt tot het maximum dat wettelijk is toegestaan.</p>
+
+            <h2>8. Vrijwaring</h2>
+            <p>U stemt ermee in de ontwikkelaar te vrijwaren van alle claims, schade, verliezen of kosten die voortvloeien uit uw gebruik van de App of schending van deze Voorwaarden.</p>
+
+            <h2>9. Wijzigingen aan de App</h2>
+            <p>Wij kunnen de App op elk moment zonder kennisgeving bijwerken, wijzigen of stopzetten. Wij zijn niet aansprakelijk voor enige wijziging, opschorting of stopzetting van de App.</p>
+
+            <h2>10. Wijzigingen in Deze Voorwaarden</h2>
+            <p>Wij kunnen deze Voorwaarden van tijd tot tijd bijwerken. Voortgezet gebruik van de App na wijzigingen vormt acceptatie van de nieuwe Voorwaarden. Wij raden u aan deze Voorwaarden regelmatig te bekijken.</p>
+
+            <h2>11. Toepasselijk Recht</h2>
+            <p>Deze Voorwaarden worden beheerst door het Nederlands recht. Geschillen zijn onderworpen aan de exclusieve rechtspraak van de Nederlandse rechtbanken, onverminderd uw rechten onder dwingend consumentenbeschermingsrecht van uw land van verblijf.</p>
+
+            <h2>12. Scheidbaarheid</h2>
+            <p>Als een bepaling van deze Voorwaarden niet-afdwingbaar wordt bevonden, blijven de overige bepalingen volledig van kracht.</p>
+
+            <h2>13. Contact</h2>
+            <p>Als u vragen heeft over deze Voorwaarden, neem dan contact met ons op:</p>
+            <ul>
+                <li>E-mail: <a href="mailto:zoldre.app@gmail.com">zoldre.app@gmail.com</a></li>
+            </ul>
+        </div>
+
+        <footer class="footer">
+            <p><a href="index.html">← <span class="en-inline">Back to Zoldre</span><span class="nl-inline">Terug naar Zoldre</span></a></p>
+            <p><a href="privacy.html"><span class="en-inline">Privacy Policy</span><span class="nl-inline">Privacybeleid</span></a></p>
+            <p>© 2026 Zoldre</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleLanguage() {
+            document.body.classList.toggle('dutch');
+            if (document.body.classList.contains('dutch')) {
+                localStorage.setItem('zoldre-lang', 'nl');
+            } else {
+                localStorage.setItem('zoldre-lang', 'en');
+            }
+        }
+        
+        // Load saved language preference
+        if (localStorage.getItem('zoldre-lang') === 'nl') {
+            document.body.classList.add('dutch');
+        }
+    </script>
+</body>
+</html>
